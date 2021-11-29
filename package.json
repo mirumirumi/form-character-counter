@@ -1,0 +1,27 @@
+{
+    "name": "form-character-counter",
+    "version": "1.0.0",
+    "description": "Chrome Extension - Form Character Counter",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "webpack",
+        "watch": "webpack -w"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mirumirumi/form-character-counter.git"
+    },
+    "author": "mirumi",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/mirumirumi/form-character-counter/issues"
+    },
+    "homepage": "https://github.com/mirumirumi/form-character-counter#readme",
+    "devDependencies": {
+        "@types/chrome": "^0.0.164",
+        "ts-loader": "^9.2.6",
+        "typescript": "^4.5.2",
+        "webpack": "^5.64.4",
+        "webpack-cli": "^4.9.1"
+    }
+}

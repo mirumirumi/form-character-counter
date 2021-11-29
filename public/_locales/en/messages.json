@@ -1,0 +1,8 @@
+{
+    "Name": {
+        "message": "Form Character Counter"
+    },
+    "Description": {
+        "message": "This Extension counts and displays the number of characters in a Web Form in real time. You can choose where to display the counter."
+    }
+}

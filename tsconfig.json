@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "target": "ES2015", // for Tree Shaking with Webpack
+        "module": "es2015", // for Tree Shaking with Webpack
+        "strict": true,
+        "esModuleInterop": true,
+        "typeRoots": [
+            "node_modules/@types"
+        ]
+    },
+    "exclude": [
+        "node_modules"
+    ]
+}

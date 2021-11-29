@@ -4,7 +4,8 @@
     "description": "Chrome Extension - Form Character Counter",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "build": "webpack",
+        "build-dev": "webpack",
+        "build-prd": "webpack --mode production",
         "watch": "webpack -w"
     },
     "repository": {
@@ -19,9 +20,9 @@
     "homepage": "https://github.com/mirumirumi/form-character-counter#readme",
     "devDependencies": {
         "@types/chrome": "^0.0.164",
-        "ts-loader": "^9.2.6",
-        "typescript": "^4.5.2",
-        "webpack": "^5.64.4",
-        "webpack-cli": "^4.9.1"
+        "ts-loader": "^9.1.2",
+        "typescript": "^4.2.4",
+        "webpack": "^5.37.0",
+        "webpack-cli": "^4.7.0"
     }
 }

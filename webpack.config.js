@@ -2,10 +2,10 @@ const path = require("path");
 
 module.exports = {
   mode: process.env.NODE_ENV || "development",
-  // devtool: "source-map",
+  devtool: "source-map",
   entry: {
     "content-script": "./src/content-script.ts",
-    // "background": "./src/background.ts"
+    "background": "./src/background.ts"
   },
   output: {
     path: path.resolve(__dirname, "dist/src"),

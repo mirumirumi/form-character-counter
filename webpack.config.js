@@ -5,10 +5,9 @@ module.exports = {
   devtool: "source-map",
   entry: {
     "content-script": "./src/content-script.ts",
-    "background": "./src/background.ts"
   },
   output: {
-    path: path.resolve(__dirname, "dist/src"),
+    path: path.resolve(__dirname, "package/src"),
     filename: "[name].js",
   },
   module: {

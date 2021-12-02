@@ -9,9 +9,6 @@
         "48": "icon/icon_48.png",
         "128": "icon/icon_128.png"
     },
-    "permissions": [
-        "background"
-    ],
     "content_scripts": [
         {
             "matches": [
@@ -20,13 +17,8 @@
             ],
             "js": [
                 "src/content-script.js"
-            ]
+            ],
+            "all_frames": true
         }
-    ],
-    "background": {
-        "scripts": [
-            "src/background.js"
-        ],
-        "persistent": false
-    }
+    ]
 }

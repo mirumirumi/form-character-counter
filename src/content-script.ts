@@ -1,3 +1,38 @@
+const target: string = "input, textarea";
+const inputType: any[] = ["email", "number", "password", "search", "tel", "text", "url", null];
+const forms = document.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>(target);
+
+for (let i = 0; i < forms.length; i++) {  // NodeList is not iterable (is not even Array)
+  eventListeners(forms[i]);
+}
+
+const observer = new MutationObserver((mutationRecords): undefined => {
+  for (const m of mutationRecords) {
+    if (m.type !== "childList") return;
+    for (let i = 0; i < m.addedNodes.length; i++) {
+      const nodeAsHtmlElem = m.addedNodes[i] as HTMLElement;
+      if (checkTarget(nodeAsHtmlElem)) {
+        eventListeners(m.addedNodes[i]);
+      }
+    }
+  }
+});
+observer.observe(document.body, {
+  childList: true,
+  subtree: true,
+  attributes: false,
+  characterData: false,
+});
+
+
+function eventListeners(form: Node): void {
+  if (!form) return;
+  form.addEventListener("input", (e: Event) => showCounter(e));
+  form.addEventListener("focus", (e: Event) => showCounter(e));
+  form.addEventListener("blur" , (e: Event) => hideCounter(e));
+}
+
+
 function showCounter(e: Event): void {
   const tag = e.target as HTMLInputElement | HTMLTextAreaElement;
   if (checkTarget(tag)) {
@@ -12,11 +47,15 @@ function hideCounter(e: Event): void {
 }
 
 
-function checkTarget(tag: HTMLInputElement | HTMLTextAreaElement): boolean {
-  const tagName = tag.tagName.toLowerCase();
-  console.log(tagName);
-  const typeName = tag.getAttribute("type");
-  console.log(typeName);
+function checkTarget(tag: HTMLElement): boolean {
+  let tagName;
+  let typeName;
+  try {
+    tagName = tag.tagName.toLowerCase();
+    typeName = tag.getAttribute("type");
+  } catch (e) {
+    ;
+  }
   if (tagName === "textarea") return true;
   if (tagName === "input" && inputType.includes(typeName)) return true;
   return false;
@@ -28,10 +67,6 @@ function countChar(text: string): number {
 }
 
 
-const target: string = "input, textarea";
-const forms = document.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>(target);
-const iframes = document.querySelectorAll<HTMLIFrameElement>("iframe");
-const inputType: any[] = ["email", "number", "password", "search", "tel", "text", "url", null];
 const box: HTMLElement = document.createElement("div");
 const counter: HTMLElement = document.createElement("span");
 box.style.cssText = `
@@ -55,14 +90,5 @@ counter.style.cssText = `
 `;
 box.appendChild(counter);
 document.body.appendChild(box);
-
-
-if (forms) {
-  for (let i = 0; i < forms.length; i++) {  // NodeList is not iterable (is not even Array)
-    forms[i].addEventListener("input", (e: Event) => showCounter(e));
-    forms[i].addEventListener("focus", (e: Event) => showCounter(e));
-    forms[i].addEventListener("blur", (e: Event) => hideCounter(e));
-  }
-}
 
 

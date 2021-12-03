@@ -1,5 +1,6 @@
 {
     "compilerOptions": {
+        "baseUrl": "./src",
         "target": "es2015", // for Tree Shaking with Webpack
         "module": "es2015", // for Tree Shaking with Webpack
         "strict": true,

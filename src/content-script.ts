@@ -47,7 +47,7 @@ function hideCounter(e: Event): void {
 }
 
 
-function checkTarget(tag: HTMLElement): boolean {
+export function checkTarget(tag: HTMLElement): boolean {
   let tagName;
   let typeName;
   try {
@@ -62,7 +62,7 @@ function checkTarget(tag: HTMLElement): boolean {
 }
 
 
-function countChar(text: string): number {
+export function countChar(text: string): number {
   return (text ?? "").length;
 }
 

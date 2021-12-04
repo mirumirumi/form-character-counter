@@ -25,7 +25,7 @@ observer.observe(document.body, {
 });
 
 
-function eventListeners(form: Node): void {
+function eventListeners(form: Node | null): void {
   if (!form) return;
   form.addEventListener("input", (e: Event) => showCounter(e));
   form.addEventListener("focus", (e: Event) => showCounter(e));
